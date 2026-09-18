@@ -1,51 +1,84 @@
-# sequential replacement of real data to simulation data
+# Quantifying Sources of Estimation Bias in Surplus Production Models Using Sequential Data Replacement Framework
 
+This repository contains the R code used for the analyses presented in:
 
-## 概要
-本プロジェクトは、日本における水産資源評価のための**sequential replacement of real data to simulation data**の解析を目的としています。本コードはデータの前処理、モデリング、可視化を行い、シミュレーションに基づいた分析を実施する。
+> *Quantifying Sources of Estimation Bias in Surplus Production Models Using Sequential Data Replacement Framework in Real-World Fisheries*
 
-## 必要環境
-本コードを実行する前に、以下のRパッケージをインストールしてください。
+The study uses a sequential data replacement framework to quantify how different sources of information contribute to estimation bias in surplus production models.
+
+## Repository structure
+
+```text
+.
+├── README.md
+├── LICENSE
+└── src/
+    ├── functions.r
+    ├── run_simulation.r
+    └── plot.r
+```
+
+* `src/functions.r`
+  Functions used for the simulation and analysis.
+
+* `src/run_simulation.r`
+  Main script for running the simulation and sequential data replacement analyses.
+
+* `src/plot.r`
+  Script for generating a representative figure from the analysis results.
+
+## Requirements
+
+The analyses were conducted in **R**.
+
+The required R packages are specified in the analysis scripts.
+
+## Reproducibility
+
+The main analyses presented in the manuscript can be reproduced using the code provided in this repository.
+
+From the repository root directory, run:
 
 ```r
-install.packages(c("tidyverse", "readxl"))
-# 他のパッケージは特定のリポジトリからのインストールが必要
+source("./src/run_simulation.r")
 ```
 
-必要なライブラリ:
+The required functions are loaded automatically by `run_simulation.r`.
+
+The plotting script can be run separately after the analysis:
 
 ```r
-library(tidyverse)
-library(spict)
-library(frasyr)
-library(frapmr)
-library(readxl)
+source("./src/plot.r")
 ```
 
-## データ形式
-入力データは**Excel形式**で提供する。
+## Data availability
 
-## 使用方法
-ここの魚種を見る時
-```sh
-test.R
-```
+The original data used in this study are not included in this repository.
 
-## 出力
-出力内容:
+The data are available from the following source:
 
+* [Data source](https://abchan.fra.go.jp/hyouka/)
 
-## ファイル構成
-```
-/
-├── src/          # 解析を実行するメインスクリプト
-├── data/         # 入力データ（Excelファイル）ディレクトリ
-├── res/          # 出力結果や図の保存ディレクトリ
-└── README.md     # プロジェクトのドキュメント
-```
+Please refer to the data source for information on data access and usage.
 
+## Baseline Data Generation
 
+A reference stock is generated from:
 
+・VPA output (frasyr::vpa)
 
----
+・Stock-recruitment relationship
+
+・Historical exploitation patterns
+
+## Citation
+
+If you use the code or framework provided in this repository, please cite the associated publication:
+
+> Citation information will be added after publication.
+
+## License
+
+This repository is distributed under the MIT License. See [`LICENSE`](LICENSE) for details.
+
 
